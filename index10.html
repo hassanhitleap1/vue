@@ -11,22 +11,17 @@
 
 </head>
 <body>
-    <div id="app">
-        <user-name name="Flavio"></user-name>
-        <my-name></my-name>
-      </div>
+<div id="app">
+    <new-templeat></new-templeat>
+</div>
 
 <script>
-Vue.component('user-name', {
-  props: ['name'],
-  template: '<p>Hi {{ name }}</p>'
-})
-Vue.component('my-name', {
-  template: '<p>Hi</p>'
-});
-
+Vue.component('new-templeat', {
+    template:'<h1> the first tempalate </h1>'
+}
+);
 new Vue({
-  el: '#app'
+    el:'#app'
 })
 </script>
 </body>
