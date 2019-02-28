@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+
+</head>
+<body>
+<div id="app">
+    <tabs>
+            <tab name="first tabe" :selected="true"><h1>contaent first tab</h1> </tab>
+            <tab name="secound tabe"><h1>contaent secound tab</h1> </tab>
+            <tab name="therad tabe"><h1>contaent therad tab</h1> </tab> 
+            <tab name="foured tabe"><h1>contaent foured tab</h1> </tab>
+            
+    </tabs>
+   
+
+</div>
+
+
+<script>
+ Vue.component('tabs', {
+     template:`
+     <div>
+         <div class="tabs">
+            <ul>
+                <li v-for="tab in tabs" :class="{'is-active': tab.isActive}"><a href="#" @click="selectTab(tab)" >{{tab.name}}</a></li>
+            </ul>
+        </div>
+
+        <div class="tab-details">
+            <slot></slot>
+        </div>
+
+     </div>   
+     `,
+     data() {
+         return {
+             tabs:[]
+         }
+     },
+     created(){
+         this.tabs=this.$children
+          
+     },
+     methods: {
+        selectTab:function(tab){
+            this.tabs.forEach(tab => {
+               tab.isActive=(tab.name== tab.selectTab) 
+            });
+        }
+     },
+
+ });
+Vue.component('tab', {
+    template:`<div><slot></slot></div>`,
+    props:{
+        name:{required:true},
+        selected:{default:false}
+    },
+    data(){
+        ret
+        isActive:false
+     
+    },
+    mounted() {
+       this.isActive=this.selected 
+    },
+})
+var app= new Vue({
+    el:'#app'
+})
+
+</script>
+
+</body>
+</html>
