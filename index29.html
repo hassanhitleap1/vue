@@ -66,9 +66,9 @@ Vue.component('tab', {
         selected:{default:false}
     },
     data(){
-        ret
-        isActive:false
-     
+        return{
+            isActive:false
+        }
     },
     mounted() {
        this.isActive=this.selected 
